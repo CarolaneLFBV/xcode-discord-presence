@@ -19,7 +19,13 @@ Une petite application macOS dans la barre des menus pour afficher ton activité
 - Application dans la barre des menus, sans icône dans le Dock.
 - Connexion locale à Discord, sans token de compte ni bot.
 
-## Installer le projet
+## Télécharger l’application
+
+[Télécharger Xcode Presence 0.3.1 pour macOS](https://github.com/CarolaneLFBV/xcode-discord-presence/releases/download/v0.3.1/XcodePresence-0.3.1-universal.dmg) — DMG universel Apple Silicon + Intel, signé avec Developer ID et notarisé par Apple.
+
+Ouvre le DMG, glisse **Xcode Presence** dans **Applications**, puis lance l’app. Aucune compilation n’est nécessaire. Suis ensuite la section [Configurer Discord](#configurer-discord) pour renseigner l’Application ID public et accorder l’autorisation Accessibilité. La release fournit aussi `SHA256SUMS.txt` pour vérifier le téléchargement.
+
+## Compiler depuis les sources
 
 Prérequis : macOS 13 ou ultérieur, Xcode installé et Discord pour Mac. Pour compiler : Xcode 15 / Swift 5.9 ou ultérieur. Les environnements effectivement vérifiés sont indiqués dans [VALIDATION.md](VALIDATION.md).
 
@@ -33,7 +39,7 @@ open dist
 
 Le script crée **Xcode Presence.app** et son ZIP dans `dist`. Quitte l’ancienne copie si nécessaire, déplace la nouvelle application dans **Applications**, puis ouvre-la. Conserve une seule copie installée pour éviter les présences en double et les autorisations ambiguës.
 
-La compilation produit l’architecture de ton Mac et une signature locale. L’application n’est pas notarisée pour une distribution générale ; la compilation locale est le mode d’installation prévu pour ce dépôt. Ouvre `Package.swift` dans Xcode pour parcourir et modifier les sources, puis utilise le script pour assembler le bundle complet avec ses ressources.
+Cette compilation de développement produit l’architecture de ton Mac et une signature locale, sans notarisation. Pour installer sans compiler, utilise le DMG signé et notarisé ci-dessus. Ouvre `Package.swift` dans Xcode pour parcourir et modifier les sources. Le processus de distribution des mainteneurs est décrit dans [DISTRIBUTION.md](DISTRIBUTION.md).
 
 Si le dossier source est synchronisé, utilise le ZIP généré pour déplacer l’application dans Applications. Il est créé depuis un bundle signé temporaire pour éviter les métadonnées Finder ajoutées par certains fournisseurs de fichiers.
 

@@ -1,5 +1,19 @@
 # Validation
 
+## Downloadable release 0.3.1
+
+Checked locally on 2026-10-15:
+
+- Universal DMG includes arm64 and x86_64 slices. Both slices were checked after packaging.
+- The app uses Developer ID signing, Hardened Runtime and a secure timestamp. Strict signature validation passes for the app and DMG.
+- Apple notarization returned `Accepted`. The ticket was stapled to the DMG and validated.
+- Gatekeeper accepts both the DMG and the app inside it; the app is identified as `Notarized Developer ID`.
+- The 23 existing unit tests pass (17 core, 6 app).
+- The executable was checked after stripping: no personal build path or old private project example was found. A Developer ID signature still identifies the Apple Developer account holder.
+- Runtime on Intel hardware and the minimum supported macOS version has not been exercised locally; architecture inclusion alone does not verify those environments.
+
+Apple credentials remain in the local Keychain. Notarization logs, credential profiles, signing keys and intermediate builds are not release assets.
+
 This document records completed checks, not a guarantee that every supported OS or Xcode version has been exercised.
 
 ## Local environment

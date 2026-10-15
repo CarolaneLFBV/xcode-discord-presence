@@ -19,13 +19,19 @@ A small native macOS menu bar app that shares your Xcode activity on Discord: th
 - Runs in the menu bar without a Dock icon. Closing its settings window keeps it running.
 - Connects locally to Discord. No Discord account token, password or bot is required.
 
+## Download the app
+
+[Download Xcode Presence 0.3.1 for macOS](https://github.com/CarolaneLFBV/xcode-discord-presence/releases/download/v0.3.1/XcodePresence-0.3.1-universal.dmg) — universal Apple Silicon + Intel DMG, signed with Developer ID and notarized by Apple.
+
+Open the DMG, drag **Xcode Presence** into **Applications**, and launch it. No compilation is needed. Then follow [Connect Discord](#connect-discord) to set the public Application ID and grant macOS Accessibility permission. The release includes `SHA256SUMS.txt` to verify the downloaded file.
+
 ## Requirements
 
 - macOS 13 or later.
 - Xcode installed, and the Discord desktop app running on the same Mac.
 - To build from source: Xcode 15 / Swift 5.9 or later. Current local validation and the limits of compatibility testing are documented in [VALIDATION.md](VALIDATION.md).
 
-The build targets the architecture of the Mac used to compile it. The CI configuration covers Apple Silicon and Intel on stable Xcode versions; a hosted CI run will only happen after the project is published.
+The downloadable DMG includes Apple Silicon and Intel slices. Local development builds target the architecture of the Mac used to compile them. Current compatibility checks and their limits are recorded in [VALIDATION.md](VALIDATION.md).
 
 ## Install from source
 
@@ -39,7 +45,7 @@ open dist
 
 The build creates `dist/Xcode Presence.app` and `dist/Xcode Presence.zip`. Quit any running copy, then move the app into **Applications** and open it. Keep one installed copy to avoid duplicate presences and ambiguous macOS permissions.
 
-The application is signed locally, not notarized for general distribution. Building locally is the supported installation path for this repository. No release download is assumed or linked here.
+This development build is signed locally and is not notarized. Use the signed and notarized DMG above for installation without compiling. Maintainers can reproduce the distribution process with [DISTRIBUTION.md](DISTRIBUTION.md).
 
 If your source folder is synced by a file provider, use the generated ZIP to move the app into Applications. The build signs a temporary bundle and archives it without Finder metadata that could interfere with signature validation.
 

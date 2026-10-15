@@ -7,5 +7,9 @@ DerivedData/
 *.xcuserstate
 xcuserdata/
 .env
+.env.*
 *.p12
+*.p8
+*.pfx
+*.keychain-db
 *.mobileprovision
