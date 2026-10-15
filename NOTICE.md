@@ -8,7 +8,7 @@ The project source code is MIT licensed. That license does not relicense third-p
 | Xcode icon shown in the app | The user's installed Xcode application | Resolved locally through AppKit. No standalone Apple icon asset is bundled. |
 | Xcode icon shown by Discord | Public image URL hosted by Apple | Referenced by URL, not copied into the repository or application bundle. |
 | `PresenceApp.icns`, `MenuBarTemplate.png` | Existing Xcode Presence project artwork | Preserved from the maintainer's original application to retain its appearance. These are not official Apple or Discord app icons. |
-| `docs/images/activity-example.svg` | Original project illustration | MIT licensed, with generic sample data and a generic code icon; not a screenshot or an official product icon. |
+| `docs/images/discord-presence.png` | Screenshot supplied by the project maintainer | Included with permission for the README. Third-party interface artwork and trademarks retain their respective rights. |
 
 Content based on [github.com/github/explore](https://github.com/github/explore) used under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) license. No modifications were made to the included language logos.
 

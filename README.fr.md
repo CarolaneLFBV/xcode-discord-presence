@@ -5,10 +5,8 @@ Une petite application macOS dans la barre des menus pour afficher ton activité
 [English](README.md) · [Contribuer](CONTRIBUTING.md) · [Licence MIT](LICENSE)
 
 <p align="center">
-  <img src="docs/images/activity-example.svg" alt="Illustration de l’activité avec des noms de fichier et de projet génériques" width="560">
+  <img src="docs/images/discord-presence.png" alt="Activité Xcode Beta sur Discord avec fichier Swift, projet et durée de session" width="340">
 </p>
-
-Illustration de l’activité avec des données d’exemple, sans profil personnel.
 
 ## Fonctionnalités
 
@@ -70,4 +68,4 @@ L’aperçu utilise des exemples génériques et des préférences séparées, s
 
 Après avoir validé et commité les fichiers destinés au public, `./scripts/export-public.sh` crée un ZIP du code courant sans l’ancien historique Git, les fichiers ignorés ou les builds. Cet export peut servir à initialiser un dépôt public neuf. Aucun script ne crée de dépôt distant et aucun envoi n’est effectué.
 
-Le code est sous [licence MIT](LICENSE). Les logos de langages conservent leur licence CC-BY-4.0 ; les attributions et le statut des icônes sont détaillés dans [NOTICE.md](NOTICE.md). L’illustration utilise des données d’exemple génériques. Projet indépendant, sans affiliation ni approbation d’Apple, Discord ou GitHub.
+Le code est sous [licence MIT](LICENSE). Les logos de langages conservent leur licence CC-BY-4.0 ; les attributions et le statut des icônes sont détaillés dans [NOTICE.md](NOTICE.md). La capture a été fournie par la mainteneuse pour ce README. Projet indépendant, sans affiliation ni approbation d’Apple, Discord ou GitHub.

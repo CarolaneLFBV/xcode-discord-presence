@@ -5,10 +5,8 @@ A small native macOS menu bar app that shares your Xcode activity on Discord: th
 [Français](README.fr.md) · [Contributing](CONTRIBUTING.md) · [MIT license](LICENSE)
 
 <p align="center">
-  <img src="docs/images/activity-example.svg" alt="Illustrative activity card with generic file and project names" width="560">
+  <img src="docs/images/discord-presence.png" alt="Discord profile showing Xcode Beta 27.2, the current Swift file, project and session duration" width="340">
 </p>
-
-Illustrative activity with sample data; no personal profile is shown.
 
 ## Features
 
@@ -107,4 +105,4 @@ The first prints permission and document metadata, which you should review befor
 
 Source code is available under the [MIT license](LICENSE). Language logos retain their upstream CC-BY-4.0 license and attribution. The app obtains its Xcode icon from an installed copy of Xcode rather than bundling an Apple bitmap. See [NOTICE.md](NOTICE.md) and the bundled [third-party notices](Resources/ThirdPartyNotices.txt).
 
-The illustration above uses generic sample data. This project is an independent utility and is not affiliated with or endorsed by Apple, Discord or GitHub.
+The screenshot above was supplied by the maintainer for this README. This project is an independent utility and is not affiliated with or endorsed by Apple, Discord or GitHub.
