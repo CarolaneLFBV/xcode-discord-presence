@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Xcode Presence — Démarrage</title>
+<style>
+:root{color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:#10121a;color:#e9edf6}*{box-sizing:border-box}body{max-width:900px;margin:0 auto;padding:64px 28px;line-height:1.65}small{color:#99a5ff;letter-spacing:.12em;text-transform:uppercase;font-weight:700}h1{font-size:clamp(36px,6vw,58px);line-height:1.1;letter-spacing:-.045em;margin:18px 0}h2{font-size:22px;letter-spacing:-.02em;margin-top:32px}p{color:#b9c0d2}a{color:#aeb9ff}section{padding:24px 30px;border:1px solid #303549;border-radius:18px;background:#191d29;margin:28px 0}.preview{border-left:3px solid #818cff;padding:8px 20px;margin:25px 0;color:#c7cee0}.preview strong{display:block;color:white;font-size:20px}.preview span{display:block}li{padding:8px 0}li::marker{color:#99a5ff;font-weight:700}code{background:#30364a;padding:2px 7px;border-radius:5px}footer{font-size:13px;color:#8e97ac;border-top:1px solid #303549;padding-top:24px;margin-top:40px}
+</style>
+<small>macOS · version 0.3.0</small>
+<h1>Ton travail sur Xcode.<br>Visible sur Discord.</h1>
+<p>Projet, fichier, langage et durée de session — depuis une petite application dans la barre des menus.</p>
+<div class="preview"><strong>Xcode Beta 27.2</strong><span>Édition de ContentView.swift</span><span>Swift · MonApplication</span><span>Temps écoulé : 12 minutes</span></div>
+<section>
+<h2>Configurer en quelques minutes</h2>
+<ol>
+<li>Place <strong>Xcode Presence.app</strong> dans Applications et ouvre-la. Retrouve ensuite ses réglages avec l’icône <code>&lt;/&gt;</code> dans la barre des menus. Elle n’apparaît pas dans le Dock.</li>
+<li>Sur le <a href="https://discord.com/developers/applications">portail développeur Discord</a>, crée une application avec <strong>New Application</strong>. Nomme-la <strong>Xcode</strong>, puis copie son <strong>Application ID</strong> dans <strong>General Information</strong>.</li>
+<li>Dans la page <strong>Connexion</strong>, colle l’identifiant et clique sur <strong>Enregistrer</strong>. La fenêtre reste ouverte pour montrer l’étape suivante.</li>
+<li>Choisis <strong>Autoriser l’accès à Xcode…</strong>, puis active Xcode Presence dans <strong>Confidentialité et sécurité → Accessibilité</strong>. Ajoute l’application avec <strong>+</strong> si nécessaire.</li>
+<li>Ouvre <strong>Discord pour Mac</strong>, active son partage d’activité, puis ouvre un fichier enregistré dans <strong>Xcode</strong>. L’activité se met à jour automatiquement.</li>
+</ol>
+</section>
+<h2>Français ou anglais</h2>
+<p>Dans <strong>Réglages → Langue de l’application</strong>, choisis <strong>Français</strong>, <strong>English</strong> ou <strong>Automatique (macOS)</strong>. Le choix est conservé et traduit immédiatement les menus, les paramètres et les textes de la présence Discord.</p>
+<p lang="en">To use English, open <strong>Settings → App language → English</strong>. The change applies immediately to the app and your Discord activity. Automatic mode follows your supported macOS language preferences and falls back to English.</p>
+<h2>Tu contrôles ce qui apparaît</h2>
+<p>La page <strong>Partage</strong> permet de masquer séparément le fichier, le projet, le langage et la durée. « Mettre en pause » retire l’activité. La pause pour inactivité est désactivée par défaut (Jamais). Tu peux choisir 5, 15 ou 30 minutes. Le compteur conserve le début de la session Xcode lors des pauses et reconnexions ; il inclut le temps passé en pause. Xcode et Xcode Beta sont pris en charge. Dans Agentic Coding ou un panneau sans document, le dernier fichier reste partagé jusqu’à la sélection d’un autre fichier. Il est oublié à la fermeture de Xcode ; les réglages de pause restent applicables.</p>
+<h2>Sources et sauvegarde</h2>
+<p>Le dépôt contient les sources Swift, les tests et les scripts de compilation. Consulte README.fr.md pour l’installation et CONTRIBUTING.md pour contribuer. Conserve ce dossier et son archive ZIP ; utilise <code>scripts/backup-sources.sh</code> après une modification.</p>
+<h2>Si rien n’apparaît</h2>
+<p>Choisis « Ouvrir les réglages… » dans le menu. La page <strong>Ton activité</strong> indique le fichier détecté, l’autorisation macOS et la dernière confirmation reçue de Discord. Vérifie l’Application ID, l’autorisation Accessibilité, l’ouverture de Discord pour Mac et ses réglages de partage. Certaines vues Xcode n’exposent pas le fichier actif ; essaie un fichier source enregistré. Si tu as remplacé l’application et que l’accès reste refusé malgré l’interrupteur, retire uniquement son entrée puis réajoute la copie d’Applications dans Accessibilité (ou Device Control and Data Access). Valide la demande directement dans macOS.</p>
+<h2>Ce qui est partagé</h2>
+<p>Le nom du projet, le nom du fichier, le langage et la durée de session. Le code source et le chemin complet ne sont jamais envoyés. L’Application ID est un identifiant public ; aucun token de compte ou de bot n’est requis.</p>
+<footer>Prototype local pour Apple Silicon et macOS 13+. Signature locale, sans notarisation pour diffusion publique. Une confirmation Discord valide la réception de la commande ; la visibilité dépend des réglages de partage du compte. Le titre indique le Xcode actif et sa version. Xcode est l’image principale ; le langage apparaît dans le petit badge rond quand il est partagé et possède un logo. Logo Xcode : Apple. Logos de langages : GitHub Explore, CC-BY-4.0 ; attribution complète incluse dans ThirdPartyNotices.txt. <a href="https://docs.discord.com/developers/topics/rpc">Documentation Discord RPC</a>.</footer>
+</html>
