@@ -13,3 +13,12 @@ xcuserdata/
 *.pfx
 *.keychain-db
 *.mobileprovision
+
+# Local documentation kept out of the public repository
+/ARCHITECTURE.md
+/CHANGELOG.md
+/CONTRIBUTING.md
+/DISTRIBUTION.md
+/README.fr.md
+/VALIDATION.md
+/.github/pull_request_template.md

@@ -2,7 +2,7 @@
 
 A small native macOS menu bar app that shares your Xcode activity on Discord: the current file, project, programming language and session duration.
 
-[Français](README.fr.md) · [Contributing](CONTRIBUTING.md) · [MIT license](LICENSE)
+[MIT license](LICENSE) · [Artwork notices](NOTICE.md)
 
 <p align="center">
   <img src="docs/images/discord-presence.png" alt="Discord profile showing Xcode Beta 27.2, the current Swift file, project and session duration" width="340">
@@ -29,9 +29,9 @@ Open the DMG, drag **Xcode Presence** into **Applications**, and launch it. No c
 
 - macOS 13 or later.
 - Xcode installed, and the Discord desktop app running on the same Mac.
-- To build from source: Xcode 15 / Swift 5.9 or later. Current local validation and the limits of compatibility testing are documented in [VALIDATION.md](VALIDATION.md).
+- To build from source: Xcode 15 / Swift 5.9 or later.
 
-The downloadable DMG includes Apple Silicon and Intel slices. Local development builds target the architecture of the Mac used to compile them. Current compatibility checks and their limits are recorded in [VALIDATION.md](VALIDATION.md).
+The downloadable DMG includes Apple Silicon and Intel slices. Local development builds target the architecture of the Mac used to compile them. [GitHub Actions](https://github.com/CarolaneLFBV/xcode-discord-presence/actions) checks tests, packaging and signatures on Intel and Apple Silicon. macOS 13 is the deployment target; runtime behavior on the minimum supported OS has not been verified.
 
 ## Install from source
 
@@ -45,7 +45,7 @@ open dist
 
 The build creates `dist/Xcode Presence.app` and `dist/Xcode Presence.zip`. Quit any running copy, then move the app into **Applications** and open it. Keep one installed copy to avoid duplicate presences and ambiguous macOS permissions.
 
-This development build is signed locally and is not notarized. Use the signed and notarized DMG above for installation without compiling. Maintainers can reproduce the distribution process with [DISTRIBUTION.md](DISTRIBUTION.md).
+This development build is signed locally and is not notarized. Use the signed and notarized DMG above for installation without compiling.
 
 If your source folder is synced by a file provider, use the generated ZIP to move the app into Applications. The build signs a temporary bundle and archives it without Finder metadata that could interfere with signature validation.
 
@@ -69,7 +69,7 @@ All display fields are enabled initially. Sharing continues in the background, w
 
 Only enabled display fields are sent to the local Discord client. Source code and full file paths are not included in the activity payload. The app reads document metadata through macOS Accessibility; it does not read the source editor's text value. Discord may fetch language artwork from GitHub and the Xcode artwork URL from Apple.
 
-Changing privacy settings cancels queued requests and requests still waiting for Discord's connection handshake. A frame already delivered to Discord cannot be recalled; the next clear or update follows the bounded in-flight operation. See [ARCHITECTURE.md](ARCHITECTURE.md).
+Changing privacy settings cancels queued requests and requests still waiting for Discord's connection handshake. A frame already delivered to Discord cannot be recalled; the next clear or update follows the bounded in-flight operation.
 
 ## Development
 
@@ -86,9 +86,21 @@ open "dist/Xcode Presence Preview.app"
 
 There are no third-party Swift package dependencies. `PresenceCore` contains the display models, sharing rules and Discord transport. `XcodePresence` contains the macOS integration, preferences, localization and SwiftUI screens.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development checks and [ARCHITECTURE.md](ARCHITECTURE.md) for the source layout and concurrency model. `./scripts/backup-sources.sh` creates a local source archive outside the project; it does not publish or upload anything.
+Before contributing, run `./scripts/test.sh`, `./scripts/build.sh` and the formatting check. Preserve existing preference keys and keep credentials, signing material and diagnostic logs out of commits. `./scripts/backup-sources.sh` creates a local source archive outside the project; it does not publish or upload anything.
 
 `./scripts/export-public.sh` exports the committed public tree to a ZIP without `.git` history, ignored files or build products. It requires a clean working tree. This is useful when a local project's earlier commits contained private examples or assets that are no longer distributed. Import that export into a fresh repository when preparing an initial public release; no script creates a remote or pushes anything.
+
+### Signed releases
+
+Maintainers need a valid Developer ID Application identity in their Keychain. Prepare the universal DMG, configure a local notarization profile interactively, then notarize it:
+
+```sh
+./scripts/release.sh prepare
+xcrun notarytool store-credentials PROFILE_NAME
+./scripts/release.sh notarize PROFILE_NAME
+```
+
+Only publish the final notarized DMG and `SHA256SUMS.txt` from `dist/distribution/`. The `-pending-notarization.dmg` and submission JSON are local intermediate files. Credentials and private keys stay in the Keychain. The signing certificate identifies the Apple Developer account. `PRESENCE_SIGNING_IDENTITY`, `PRESENCE_RELEASE_OUTPUT` and `PRESENCE_RELEASE_SCRATCH` can override the signing identity, output folder and build cache.
 
 ## Troubleshooting
 
