@@ -10,11 +10,12 @@ import SwiftUI
     func applicationDidFinishLaunching(_ notification: Notification) {
         NSApp.setActivationPolicy(.accessory)
         installApplicationMenu()
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         if let path = Bundle.main.path(forResource: "MenuBarTemplate", ofType: "png"),
             let icon = NSImage(contentsOfFile: path)
         {
-            icon.size = NSSize(width: 18, height: 18)
+            // Keep the wide template's proportions instead of compressing it into a square.
+            icon.size = NSSize(width: 18 * icon.size.width / icon.size.height, height: 18)
             icon.isTemplate = true
             statusItem.button?.image = icon
         } else {
@@ -22,6 +23,7 @@ import SwiftUI
                 systemSymbolName: "chevron.left.forwardslash.chevron.right",
                 accessibilityDescription: "Xcode Presence")
         }
+        statusItem.button?.imageScaling = .scaleProportionallyDown
         statusItem.button?.toolTip = "Xcode Presence"
         model.onMenuChange = { [weak self] in self?.updateMenu() }
         model.start()

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Preserve the menu bar icon's aspect ratio and let its status item fit the image width.
+
 - Organize the SwiftUI screens, preferences, localization and core models into focused files.
 - Prevent obsolete queued or still-connecting Discord requests from publishing after privacy settings change.
 - Add tests for publication cancellation, retries, preference compatibility and localization completeness.
